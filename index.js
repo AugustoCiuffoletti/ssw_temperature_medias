@@ -46,7 +46,7 @@ function calcoloMedia() {
         var dataObject = JSON.parse(request.response);
         media += dataObject.main.temp / cityElems.length;
         document.getElementById("media").innerHTML =
-          "La media è di " + media + " gradi";
+          "La media e' di " + media + " gradi";
       } else {
         document.getElementById("media").innerText = "Errore";
       }
@@ -54,7 +54,8 @@ function calcoloMedia() {
     // Applico il metodo "open"
     request.open(
       "GET",
-      "https://api.openweathermap.org/data/2.5/weather?APPID=d0fda39104b3c7c45fe031a5392964c1&units=metric&q=" + city,
+      "https://api.openweathermap.org/data/2.5/weather?APPID=d0fda39104b3c7c45fe031a5392964c1&units=metric&q=" +
+        city,
       true
     );
     // Applico il metodo send (al termine chiamerà il callback "onload")
