@@ -41,7 +41,6 @@ function calcoloMedia() {
     let city = c.innerHTML;
     let request = new XMLHttpRequest(); // Costruzione dell'oggetto "request"
     request.onload = () => {
-      // funzione definita arrow
       if (request.status === 200) {
         var dataObject = JSON.parse(request.response);
         media += dataObject.main.temp / cityElems.length;
@@ -51,14 +50,12 @@ function calcoloMedia() {
         document.getElementById("media").innerText = "Errore";
       }
     };
-    // Applico il metodo "open"
     request.open(
       "GET",
       "https://api.openweathermap.org/data/2.5/weather?APPID=d0fda39104b3c7c45fe031a5392964c1&units=metric&q=" +
         city,
       true
     );
-    // Applico il metodo send (al termine chiamera' il callback "onload")
     request.send();
   }
 }
