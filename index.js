@@ -58,7 +58,7 @@ function calcoloMedia() {
         city,
       true
     );
-    // Applico il metodo send (al termine chiamerà il callback "onload")
+    // Applico il metodo send (al termine chiamera' il callback "onload")
     request.send();
   }
 }
