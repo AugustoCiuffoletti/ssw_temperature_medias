@@ -1,7 +1,12 @@
-// Import stylesheets
+// Versione semplice, messa nella slide del corso
 import "./style.css";
 
-var cityElems = Array.from(document.getElementsByClassName("città"));
+const cityElems = Array.from(document.getElementsByClassName("città"));
+const apiKey = "d0475be3a1967b1b49dfc02c8128001a";
+const URL =
+  "https://api.openweathermap.org/data/2.5/weather?APPID=" +
+  apiKey +
+  "&units=metric&q=";
 for (let elem of cityElems) {
   elem.onclick = () => display(elem.innerHTML);
 }
@@ -25,12 +30,7 @@ function display(city) {
   };
 
   // Applico il metodo "open"
-  request.open(
-    "GET",
-    "https://api.openweathermap.org/data/2.5/weather?APPID=9bd419b49d4261031516ad5fddac3439&units=metric&q=" +
-      city,
-    true
-  );
+  request.open("GET", URL + city, true);
   // Applico il metodo send (al termine chiamerà il callback "onload")
   request.send();
 }
@@ -50,12 +50,7 @@ function calcoloMedia() {
         document.getElementById("media").innerText = "Errore";
       }
     };
-    request.open(
-      "GET",
-      "https://api.openweathermap.org/data/2.5/weather?APPID=d0fda39104b3c7c45fe031a5392964c1&units=metric&q=" +
-        city,
-      true
-    );
+    request.open("GET", URL + city, true);
     request.send();
   }
 }
